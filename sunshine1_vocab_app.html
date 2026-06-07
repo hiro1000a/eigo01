@@ -178,6 +178,22 @@
     margin-left: auto; flex-shrink: 0; background: none; border: none;
     color: var(--text3); font-size: 16px; cursor: pointer; padding: 0 2px; line-height: 1;
   }
+  .list-table { width: 100%; border-collapse: collapse; }
+  .list-table th {
+    padding: 8px 12px; font-size: 12px; color: var(--text3); font-weight: 500;
+    border-bottom: 0.5px solid var(--border); text-align: left; position: sticky; top: 0;
+    background: var(--bg);
+  }
+  .list-table td {
+    padding: 11px 12px; font-size: 15px; border-bottom: 0.5px solid var(--border);
+    vertical-align: middle; line-height: 1.4;
+  }
+  .list-table tr:last-child td { border-bottom: none; }
+  .list-table .td-num { font-size: 11px; color: var(--text3); width: 28px; text-align: center; }
+  .list-table .td-ja { color: var(--text); width: 50%; }
+  .list-table .td-en { color: var(--text2); width: 50%; font-weight: 500; letter-spacing: 0.3px; }
+  .list-table tr:hover td { background: var(--bg2); }
+  .list-count { font-size: 12px; color: var(--text3); text-align: right; margin-bottom: 8px; }
   .hidden { display: none !important; }
 </style>
 </head>
@@ -218,12 +234,18 @@
   <button class="mode-tab" data-mode="type"><span class="icon">✏️</span>書き取り</button>
   <button class="mode-tab" data-mode="alpha"><span class="icon">🔤</span>文字選択</button>
   <button class="mode-tab" data-mode="choice"><span class="icon">☑️</span>単語選択</button>
+  <button class="mode-tab" data-mode="list"><span class="icon">📋</span>一覧</button>
 </div>
 
 <div class="install-tip hidden" id="installTip">
   <span class="tip-icon">📲</span>
   <span>SafariでSafari「共有」→「ホーム画面に追加」でアプリとして使えます。</span>
   <button class="install-tip-close" onclick="document.getElementById('installTip').classList.add('hidden')">×</button>
+</div>
+
+<!-- List -->
+<div class="content hidden" id="listMode">
+  <div id="listTable"></div>
 </div>
 
 <!-- Flash -->
@@ -530,12 +552,28 @@ function checkChoice(btn, chosen, en) {
 
 function nextQuestion() { idx++; loadCard(); }
 
+function renderList() {
+  const d = getChapterDeck();
+  const wrap = document.getElementById("listTable");
+  let html = '<div class="list-count">' + d.length + '語</div>';
+  html += '<table class="list-table"><thead><tr><th class="td-num">#</th><th class="td-ja">日本語</th><th class="td-en">英語</th></tr></thead><tbody>';
+  d.forEach((item, i) => {
+    html += '<tr><td class="td-num">' + (i+1) + '</td><td class="td-ja">' + item[0] + '</td><td class="td-en">' + item[1] + '</td></tr>';
+  });
+  html += '</tbody></table>';
+  wrap.innerHTML = html;
+  // スコア欄は一覧では不要なので0にリセット
+  document.getElementById("progLabel").textContent = d.length + "語";
+  document.getElementById("progressFill").style.width = "100%";
+}
+
 function switchMode(m) {
   mode = m;
   document.querySelectorAll(".mode-tab").forEach(t => t.classList.toggle("active", t.dataset.mode === m));
-  ["flash","type","alpha","choice"].forEach(id => {
+  ["flash","type","alpha","choice","list"].forEach(id => {
     document.getElementById(id + "Mode").classList.toggle("hidden", id !== m);
   });
+  if (m === "list") { renderList(); return; }
   idx = 0; resetScores();
   deck = buildDeck();
   loadCard();
