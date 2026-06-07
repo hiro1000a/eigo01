@@ -10,193 +10,84 @@
 <title>Sunshine1 英単語アプリ</title>
 <style>
   :root {
-    --bg: #ffffff;
-    --bg2: #f5f5f3;
-    --bg3: #ebebeb;
-    --text: #1a1a1a;
-    --text2: #666660;
-    --text3: #999994;
-    --border: rgba(0,0,0,0.12);
-    --border2: rgba(0,0,0,0.22);
-    --radius: 12px;
-    --radius-sm: 8px;
-    --green: #1D9E75;
-    --green-bg: #E1F5EE;
-    --green-text: #085041;
-    --red: #D85A30;
-    --red-bg: #FAECE7;
-    --red-text: #4A1B0C;
-    --accent: #1a1a1a;
-    --accent-text: #ffffff;
-    --safe-bottom: env(safe-area-inset-bottom, 0px);
-    --safe-top: env(safe-area-inset-top, 0px);
+    --bg: #ffffff; --bg2: #f5f5f3; --bg3: #ebebeb;
+    --text: #1a1a1a; --text2: #666660; --text3: #999994;
+    --border: rgba(0,0,0,0.12); --border2: rgba(0,0,0,0.22);
+    --radius: 12px; --radius-sm: 8px;
+    --green: #1D9E75; --green-bg: #E1F5EE; --green-text: #085041;
+    --red: #D85A30; --red-bg: #FAECE7; --red-text: #4A1B0C;
+    --accent: #1a1a1a; --accent-text: #ffffff;
+    --safe-b: env(safe-area-inset-bottom, 0px);
+    --safe-t: env(safe-area-inset-top, 0px);
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #1a1a1a;
-      --bg2: #242424;
-      --bg3: #303030;
-      --text: #f0f0ee;
-      --text2: #aaa89f;
-      --text3: #666660;
-      --border: rgba(255,255,255,0.10);
-      --border2: rgba(255,255,255,0.20);
-      --green-bg: #0a2e22;
-      --green-text: #5DCAA5;
-      --red-bg: #2e1508;
-      --red-text: #F0997B;
-      --accent: #f0f0ee;
-      --accent-text: #1a1a1a;
+      --bg: #1a1a1a; --bg2: #242424; --bg3: #303030;
+      --text: #f0f0ee; --text2: #aaa89f; --text3: #666660;
+      --border: rgba(255,255,255,0.10); --border2: rgba(255,255,255,0.20);
+      --green-bg: #0a2e22; --green-text: #5DCAA5;
+      --red-bg: #2e1508; --red-text: #F0997B;
+      --accent: #f0f0ee; --accent-text: #1a1a1a;
     }
   }
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
+    background: var(--bg); color: var(--text);
+    min-height: 100vh; min-height: -webkit-fill-available;
+    display: flex; flex-direction: column; overflow-x: hidden;
   }
-  /* Header */
   .header {
-    padding: calc(var(--safe-top) + 12px) 16px 12px;
-    background: var(--bg);
-    border-bottom: 0.5px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: calc(var(--safe-t) + 12px) 16px 12px;
+    background: var(--bg); border-bottom: 0.5px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
   }
-  .header-top {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
+  .header-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
   .app-title { font-size: 17px; font-weight: 600; flex: 1; }
   .prog-label { font-size: 13px; color: var(--text3); }
-  .controls {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
+  .controls { display: flex; gap: 8px; align-items: center; }
   select {
-    flex: 1;
-    padding: 8px 10px;
-    border-radius: var(--radius-sm);
-    border: 0.5px solid var(--border2);
-    background: var(--bg2);
-    color: var(--text);
-    font-size: 14px;
-    appearance: none;
-    -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23999' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 8px center;
-    padding-right: 28px;
+    flex: 1; padding: 8px 28px 8px 10px;
+    border-radius: var(--radius-sm); border: 0.5px solid var(--border2);
+    background: var(--bg2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23999' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat right 8px center;
+    color: var(--text); font-size: 14px; appearance: none; -webkit-appearance: none;
   }
   .icon-btn {
-    width: 36px; height: 36px;
-    border-radius: var(--radius-sm);
-    border: 0.5px solid var(--border2);
-    background: var(--bg2);
-    color: var(--text2);
-    font-size: 16px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    flex-shrink: 0;
+    width: 36px; height: 36px; border-radius: var(--radius-sm);
+    border: 0.5px solid var(--border2); background: var(--bg2);
+    color: var(--text2); font-size: 16px;
+    display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;
   }
-  /* Progress */
-  .progress-wrap {
-    padding: 0 16px;
-    background: var(--bg);
-    border-bottom: 0.5px solid var(--border);
-    padding-bottom: 8px;
-  }
-  .score-row {
-    display: flex;
-    gap: 8px;
-    padding: 8px 0 6px;
-  }
-  .score-pill {
-    flex: 1;
-    background: var(--bg2);
-    border-radius: var(--radius-sm);
-    padding: 6px 0;
-    text-align: center;
-  }
+  .progress-wrap { padding: 0 16px 8px; background: var(--bg); border-bottom: 0.5px solid var(--border); }
+  .score-row { display: flex; gap: 8px; padding: 8px 0 6px; }
+  .score-pill { flex: 1; background: var(--bg2); border-radius: var(--radius-sm); padding: 6px 0; text-align: center; }
   .score-pill .sn { font-size: 18px; font-weight: 600; }
   .score-pill .sl { font-size: 10px; color: var(--text3); margin-top: 1px; }
-  .progress-bar {
-    height: 3px;
-    background: var(--bg3);
-    border-radius: 999px;
-    overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 999px;
-    transition: width 0.35s;
-  }
-  /* Mode tabs */
+  .progress-bar { height: 3px; background: var(--bg3); border-radius: 999px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--accent); border-radius: 999px; transition: width 0.35s; }
   .mode-bar {
-    display: flex;
-    gap: 0;
-    background: var(--bg);
-    border-bottom: 0.5px solid var(--border);
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    display: flex; background: var(--bg); border-bottom: 0.5px solid var(--border);
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
   }
   .mode-bar::-webkit-scrollbar { display: none; }
   .mode-tab {
-    flex: 1;
-    min-width: 72px;
-    padding: 10px 4px;
-    border: none;
-    background: transparent;
-    color: var(--text3);
-    font-size: 11px;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    border-bottom: 2px solid transparent;
-    transition: all 0.15s;
-    white-space: nowrap;
+    flex: 1; min-width: 72px; padding: 10px 4px;
+    border: none; background: transparent; color: var(--text3);
+    font-size: 11px; font-weight: 500; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    border-bottom: 2px solid transparent; transition: all 0.15s; white-space: nowrap;
   }
   .mode-tab .icon { font-size: 18px; }
   .mode-tab.active { color: var(--text); border-bottom-color: var(--accent); }
-  /* Main content */
   .content {
-    flex: 1;
-    padding: 16px 16px calc(16px + var(--safe-bottom));
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    flex: 1; padding: 16px 16px calc(16px + var(--safe-b));
+    display: flex; flex-direction: column; gap: 12px;
   }
-  /* Card */
   .card {
-    background: var(--bg);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px 20px;
-    text-align: center;
-    min-height: 140px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: transform 0.1s;
-    -webkit-user-select: none;
-    user-select: none;
+    background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius);
+    padding: 24px 20px; text-align: center; min-height: 140px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    cursor: pointer; transition: transform 0.1s; -webkit-user-select: none; user-select: none;
   }
   .card:active { transform: scale(0.98); }
   .card-static { cursor: default; }
@@ -205,180 +96,88 @@
   .card-ja { font-size: 20px; font-weight: 600; line-height: 1.4; }
   .card-en { font-size: 18px; color: var(--text2); font-weight: 500; }
   .card-divider { width: 36px; height: 1px; background: var(--border); }
-  /* Input */
   .spell-input {
-    width: 100%;
-    padding: 14px 16px;
-    border-radius: var(--radius);
-    border: 0.5px solid var(--border2);
-    background: var(--bg2);
-    color: var(--text);
-    font-size: 17px;
-    letter-spacing: 1.5px;
-    outline: none;
-    transition: border-color 0.15s, background 0.15s;
+    width: 100%; padding: 14px 16px; border-radius: var(--radius);
+    border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text);
+    font-size: 17px; letter-spacing: 1.5px; outline: none; transition: border-color 0.15s, background 0.15s;
     -webkit-appearance: none;
   }
   .spell-input:focus { border-color: var(--accent); }
   .spell-input.correct { border-color: var(--green); background: var(--green-bg); color: var(--green-text); }
   .spell-input.wrong { border-color: var(--red); background: var(--red-bg); color: var(--red-text); }
-  /* Buttons */
   .btn-primary {
-    width: 100%;
-    padding: 14px;
-    border-radius: var(--radius);
-    border: none;
-    background: var(--accent);
-    color: var(--accent-text);
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.12s;
+    width: 100%; padding: 14px; border-radius: var(--radius); border: none;
+    background: var(--accent); color: var(--accent-text);
+    font-size: 16px; font-weight: 600; cursor: pointer; transition: opacity 0.12s;
   }
   .btn-primary:active { opacity: 0.8; }
   .btn-secondary {
-    width: 100%;
-    padding: 14px;
-    border-radius: var(--radius);
-    border: 0.5px solid var(--border2);
-    background: transparent;
-    color: var(--text);
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.12s;
+    width: 100%; padding: 14px; border-radius: var(--radius);
+    border: 0.5px solid var(--border2); background: transparent; color: var(--text);
+    font-size: 16px; font-weight: 500; cursor: pointer; transition: background 0.12s;
   }
   .btn-secondary:active { background: var(--bg2); }
-  /* Nav row */
   .nav-row { display: flex; gap: 10px; align-items: center; }
   .nav-btn {
-    flex: 1;
-    padding: 12px;
-    border-radius: var(--radius);
-    border: 0.5px solid var(--border2);
-    background: transparent;
-    color: var(--text);
-    font-size: 15px;
-    cursor: pointer;
-    transition: background 0.12s;
+    flex: 1; padding: 12px; border-radius: var(--radius);
+    border: 0.5px solid var(--border2); background: transparent; color: var(--text);
+    font-size: 15px; cursor: pointer; transition: background 0.12s;
   }
   .nav-btn:active { background: var(--bg2); }
   .nav-btn:disabled { opacity: 0.28; cursor: default; }
   .nav-ctr { font-size: 13px; color: var(--text3); min-width: 52px; text-align: center; }
-  /* Feedback */
-  .feedback {
-    font-size: 15px;
-    font-weight: 600;
-    text-align: center;
-    min-height: 22px;
-  }
+  .feedback { font-size: 15px; font-weight: 600; text-align: center; min-height: 22px; }
   .feedback.ok { color: var(--green); }
   .feedback.ng { color: var(--red); }
-  /* Choice grid */
-  .choices-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
+  .choices-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .choice-btn {
-    padding: 14px 8px;
-    border-radius: var(--radius);
-    border: 0.5px solid var(--border2);
-    background: var(--bg2);
-    color: var(--text);
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.12s;
-    line-height: 1.3;
-    letter-spacing: 0.5px;
+    padding: 14px 8px; border-radius: var(--radius);
+    border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text);
+    font-size: 15px; font-weight: 500; cursor: pointer; text-align: center;
+    transition: all 0.12s; line-height: 1.3; letter-spacing: 0.5px;
   }
   .choice-btn:active { background: var(--bg3); }
   .choice-btn.correct { background: var(--green-bg); border-color: var(--green); color: var(--green-text); }
   .choice-btn.wrong { background: var(--red-bg); border-color: var(--red); color: var(--red-text); }
   .choice-btn:disabled { cursor: default; }
-  /* Alpha grid */
   .alpha-display {
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: 5px;
-    text-align: center;
-    padding: 4px 0;
-    color: var(--text);
-    min-height: 36px;
+    font-size: 24px; font-weight: 600; letter-spacing: 5px;
+    text-align: center; padding: 4px 0; color: var(--text); min-height: 36px;
   }
-  .alpha-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-  }
+  .alpha-grid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
   .alpha-btn {
-    width: 42px; height: 42px;
-    border-radius: var(--radius-sm);
-    border: 0.5px solid var(--border2);
-    background: var(--bg2);
-    color: var(--text);
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.1s;
+    width: 42px; height: 42px; border-radius: var(--radius-sm);
+    border: 0.5px solid var(--border2); background: var(--bg2); color: var(--text);
+    font-size: 16px; font-weight: 500; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; transition: background 0.1s;
   }
   .alpha-btn:active { background: var(--bg3); }
   .alpha-btn:disabled { opacity: 0.22; cursor: default; }
   .alpha-actions { display: flex; gap: 8px; justify-content: center; }
   .small-btn {
-    padding: 8px 16px;
-    border-radius: var(--radius-sm);
-    border: 0.5px solid var(--border2);
-    background: transparent;
-    color: var(--text2);
-    font-size: 13px;
-    cursor: pointer;
+    padding: 8px 16px; border-radius: var(--radius-sm);
+    border: 0.5px solid var(--border2); background: transparent;
+    color: var(--text2); font-size: 13px; cursor: pointer;
   }
   .small-btn:active { background: var(--bg2); }
-  /* Complete */
   .complete-wrap {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    padding: 32px 16px;
-    text-align: center;
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 16px; padding: 32px 16px; text-align: center;
   }
   .complete-emoji { font-size: 56px; }
   .complete-title { font-size: 22px; font-weight: 700; }
   .complete-sub { font-size: 15px; color: var(--text2); }
-  /* PWA install tip */
   .install-tip {
-    background: var(--bg2);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius);
-    padding: 12px 14px;
-    font-size: 12px;
-    color: var(--text2);
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-    margin: 0 16px 12px;
+    background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius);
+    padding: 12px 14px; font-size: 12px; color: var(--text2);
+    display: flex; gap: 8px; align-items: flex-start; margin: 0 16px 12px;
   }
-  .install-tip .icon { font-size: 18px; flex-shrink: 0; }
+  .install-tip .tip-icon { font-size: 18px; flex-shrink: 0; }
   .install-tip-close {
-    margin-left: auto;
-    flex-shrink: 0;
-    background: none;
-    border: none;
-    color: var(--text3);
-    font-size: 16px;
-    cursor: pointer;
-    padding: 0 2px;
-    line-height: 1;
+    margin-left: auto; flex-shrink: 0; background: none; border: none;
+    color: var(--text3); font-size: 16px; cursor: pointer; padding: 0 2px; line-height: 1;
   }
-  /* hidden */
   .hidden { display: none !important; }
 </style>
 </head>
@@ -391,16 +190,17 @@
   </div>
   <div class="controls">
     <select id="chapterSel">
-        <option value="all">全章</option>
-        <option value="1">Program 1</option>
-        <option value="2">Program 2</option>
-        <option value="3">Program 3</option>
-        <option value="month">月</option>
-        <option value="day">曜日</option>
-        <option value="season">四季</option>
-        <option value="number">数字 1〜20</option>
+      <option value="all">全章</option>
+      <option value="1">Program 1</option>
+      <option value="2">Program 2</option>
+      <option value="3">Program 3</option>
+      <option value="month">月</option>
+      <option value="day">曜日</option>
+      <option value="season">四季</option>
+      <option value="number">数字 1〜20</option>
     </select>
     <button class="icon-btn" id="shuffleBtn" title="シャッフル">🔀</button>
+    <button class="icon-btn" id="orderBtn" title="順番/ランダム" style="font-size:13px;font-weight:600;">順</button>
   </div>
 </div>
 
@@ -420,14 +220,13 @@
   <button class="mode-tab" data-mode="choice"><span class="icon">☑️</span>単語選択</button>
 </div>
 
-<!-- Install tip (iOS) -->
 <div class="install-tip hidden" id="installTip">
-  <span class="icon">📲</span>
-  <span>iPhoneのSafariで開いている場合、下の「共有」→「ホーム画面に追加」でアプリとして使えます。</span>
+  <span class="tip-icon">📲</span>
+  <span>SafariでSafari「共有」→「ホーム画面に追加」でアプリとして使えます。</span>
   <button class="install-tip-close" onclick="document.getElementById('installTip').classList.add('hidden')">×</button>
 </div>
 
-<!-- Flash mode -->
+<!-- Flash -->
 <div class="content" id="flashMode">
   <div class="card" id="flashCard" onclick="flipCard()">
     <div class="card-hint" id="flashHint">タップして英語を確認</div>
@@ -442,7 +241,7 @@
   </div>
 </div>
 
-<!-- Type mode -->
+<!-- Type -->
 <div class="content hidden" id="typeMode">
   <div class="card card-static">
     <div class="card-hint">日本語を見て英語を入力</div>
@@ -454,7 +253,7 @@
   <button class="btn-secondary hidden" id="typeNextBtn" onclick="nextQuestion()">次の問題へ →</button>
 </div>
 
-<!-- Alpha mode -->
+<!-- Alpha -->
 <div class="content hidden" id="alphaMode">
   <div class="card card-static">
     <div class="card-hint">アルファベットを選んで完成させよう</div>
@@ -471,7 +270,7 @@
   <button class="btn-secondary hidden" id="alphaNextBtn" onclick="nextQuestion()">次の問題へ →</button>
 </div>
 
-<!-- Choice mode -->
+<!-- Choice -->
 <div class="content hidden" id="choiceMode">
   <div class="card card-static">
     <div class="card-hint">正しい英語を選んでください</div>
@@ -495,11 +294,21 @@ const ALL_WORDS = [
   // 曜日
   ["月曜日","Monday"],["火曜日","Tuesday"],["水曜日","Wednesday"],["木曜日","Thursday"],["金曜日","Friday"],["土曜日","Saturday"],["日曜日","Sunday"],
   // 四季
-  ["春","spring"],["夏","summer"],["秋","fall"],["冬","winter"],
+  ["春","spring"],["夏","summer"],["秋","autumn"],["冬","winter"],
   // 数字 1〜20
-  ["1","one"],["2","two"],["3","three"],["4","four"],["5","five"],["6","six"],["7","seven"],["8","eight"],["9","nine"],["10","ten"],["11","eleven"],["12","twelve"],["13","thirteen"],["14","fourteen"],["15","fifteen"],["16","sixteen"],["17","seventeen"],["18","eighteen"],["19","nineteen"],["20","twenty"],
+  ["1","one"],["2","two"],["3","three"],["4","four"],["5","five"],["6","six"],["7","seven"],["8","eight"],["9","nine"],["10","ten"],["11","eleven"],["12","twelve"],["13","thirteen"],["14","fourteen"],["15","fifteen"],["16","sixteen"],["17","seventeen"],["18","eighteen"],["19","nineteen"],["20","twenty"]
 ];
-const CHAPTER_RANGES = { "1":[0,70], "2":[70,141], "3":[141,218] };
+
+const ORDER_CHAPTERS = ['month','day','season','number']; // 順番出題デフォルト
+const CHAPTER_RANGES = {
+  "1":      [0,   70],
+  "2":      [70,  141],
+  "3":      [141, 217],
+  "month":  [217, 229],
+  "day":    [229, 236],
+  "season": [236, 240],
+  "number": [240, 260]
+};
 
 let deck = [], idx = 0, mode = "flash";
 let scoreOk = 0, scoreNg = 0;
@@ -513,27 +322,28 @@ function shuffle(a) {
   }
   return a;
 }
+let orderMode = false; // false=ランダム, true=順番
+
+function isOrderChapter(v) {
+  return ORDER_CHAPTERS.includes(v);
+}
 function getChapterDeck() {
   const v = document.getElementById("chapterSel").value;
   if (v === "all") return [...ALL_WORDS];
-  const [s,e] = CHAPTER_RANGES[v];
+  const [s, e] = CHAPTER_RANGES[v];
   return ALL_WORDS.slice(s, e);
 }
 function resetScores() { scoreOk = 0; scoreNg = 0; updateUI(); }
 function updateUI() {
   document.getElementById("scoreOk").textContent = scoreOk;
   document.getElementById("scoreNg").textContent = scoreNg;
-  const left = Math.max(0, deck.length - idx - 1);
-  document.getElementById("scoreLeft").textContent = left;
-  const pct = deck.length ? (idx / deck.length * 100) : 0;
-  document.getElementById("progressFill").style.width = pct + "%";
-  document.getElementById("progLabel").textContent = (idx+1) + " / " + deck.length;
+  document.getElementById("scoreLeft").textContent = Math.max(0, deck.length - idx - 1);
+  document.getElementById("progressFill").style.width = (deck.length ? idx / deck.length * 100 : 0) + "%";
+  document.getElementById("progLabel").textContent = (idx + 1) + " / " + deck.length;
 }
-
 function loadCard() {
   if (idx >= deck.length) { showComplete(); return; }
-  answered = false;
-  alphaInput = "";
+  answered = false; alphaInput = "";
   updateUI();
   const [ja, en] = deck[idx];
   if (mode === "flash") loadFlash(ja, en);
@@ -541,20 +351,26 @@ function loadCard() {
   else if (mode === "alpha") loadAlpha(ja, en);
   else if (mode === "choice") loadChoice(ja, en);
 }
-
 function showComplete() {
   document.getElementById("progressFill").style.width = "100%";
   document.getElementById("scoreLeft").textContent = 0;
   document.getElementById("progLabel").textContent = deck.length + " / " + deck.length;
-  const area = document.getElementById(mode + "Mode");
-  area.innerHTML = '<div class="complete-wrap"><div class="complete-emoji">🎉</div><div class="complete-title">完了！</div><div class="complete-sub">正解 ' + scoreOk + ' ／ 不正解 ' + scoreNg + '</div><button class="btn-primary" style="max-width:260px;margin-top:8px" onclick="restartDeck()">もう一度チャレンジ</button></div>';
+  document.getElementById(mode + "Mode").innerHTML =
+    '<div class="complete-wrap"><div class="complete-emoji">🎉</div>' +
+    '<div class="complete-title">完了！</div>' +
+    '<div class="complete-sub">正解 ' + scoreOk + ' ／ 不正解 ' + scoreNg + '</div>' +
+    '<button class="btn-primary" style="max-width:260px;margin-top:8px" onclick="restartDeck()">もう一度チャレンジ</button></div>';
 }
-
+function shouldShuffle() {
+  const v = document.getElementById("chapterSel").value;
+  return !(orderMode && isOrderChapter(v));
+}
+function buildDeck() {
+  const d = getChapterDeck();
+  return shouldShuffle() ? shuffle(d) : d;
+}
 function restartDeck() {
-  deck = shuffle(getChapterDeck());
-  idx = 0;
-  resetScores();
-  switchMode(mode);
+  deck = buildDeck(); idx = 0; resetScores(); switchMode(mode);
 }
 
 // Flash
@@ -566,7 +382,7 @@ function loadFlash(ja, en) {
   document.getElementById("flashHint").textContent = "タップして英語を確認";
   document.getElementById("prevBtn").disabled = idx === 0;
   document.getElementById("nextBtn").disabled = idx === deck.length - 1;
-  document.getElementById("navCtr").textContent = (idx+1) + " / " + deck.length;
+  document.getElementById("navCtr").textContent = (idx + 1) + " / " + deck.length;
 }
 function flipCard() {
   document.getElementById("flashEn").classList.remove("hidden");
@@ -589,7 +405,7 @@ function loadType(ja, en) {
   document.getElementById("typeNextBtn").classList.add("hidden");
   setTimeout(() => inp.focus(), 100);
 }
-function normalize(s) { return s.trim().toLowerCase().replace(/[.'!?]/g,""); }
+function normalize(s) { return s.trim().toLowerCase().replace(/[.'!?]/g, ""); }
 function checkType() {
   if (answered) return;
   const en = deck[idx][1];
@@ -611,29 +427,25 @@ function checkType() {
 function loadAlpha(ja, en) {
   document.getElementById("alphaJa").textContent = ja;
   alphaInput = "";
-  const target = en.toLowerCase().replace(/[^a-z]/g,"");
+  const target = en.toLowerCase().replace(/[^a-z]/g, "");
   const unique = [...new Set(target.split(""))].sort();
-  const pool = "abcdefghijklmnopqrstuvwxyz".split("").filter(c => !unique.includes(c));
-  shuffle(pool);
-  const letters = shuffle([...unique, ...pool.slice(0, Math.max(0, 10 - unique.length))]);
-  alphaLetters = letters;
-  renderAlphaGrid(en);
+  const pool = shuffle("abcdefghijklmnopqrstuvwxyz".split("").filter(c => !unique.includes(c)));
+  alphaLetters = shuffle([...unique, ...pool.slice(0, Math.max(0, 10 - unique.length))]);
+  renderAlphaGrid();
   renderAlphaDisplay(en);
   document.getElementById("alphaFeedback").textContent = "";
   document.getElementById("alphaFeedback").className = "feedback";
   document.getElementById("alphaNextBtn").classList.add("hidden");
 }
 function renderAlphaDisplay(en) {
-  let letterIdx = 0, result = "";
+  let li = 0, result = "";
   for (const ch of en) {
-    if (/[a-zA-Z]/.test(ch)) {
-      result += letterIdx < alphaInput.length ? alphaInput[letterIdx] : "＿";
-      letterIdx++;
-    } else result += ch;
+    if (/[a-zA-Z]/.test(ch)) { result += li < alphaInput.length ? alphaInput[li] : "＿"; li++; }
+    else result += ch;
   }
   document.getElementById("alphaDisplay").textContent = result;
 }
-function renderAlphaGrid(en) {
+function renderAlphaGrid() {
   const grid = document.getElementById("alphaGrid");
   grid.innerHTML = "";
   for (const ch of alphaLetters) {
@@ -646,7 +458,7 @@ function renderAlphaGrid(en) {
 function alphaPress(ch) {
   if (answered) return;
   const en = deck[idx][1];
-  const target = en.toLowerCase().replace(/[^a-z]/g,"");
+  const target = en.toLowerCase().replace(/[^a-z]/g, "");
   if (alphaInput.length >= target.length) return;
   alphaInput += ch;
   renderAlphaDisplay(en);
@@ -654,7 +466,7 @@ function alphaPress(ch) {
 }
 function alphaDel() {
   if (answered || alphaInput.length === 0) return;
-  alphaInput = alphaInput.slice(0,-1);
+  alphaInput = alphaInput.slice(0, -1);
   renderAlphaDisplay(deck[idx][1]);
 }
 function alphaClear() {
@@ -663,7 +475,7 @@ function alphaClear() {
   renderAlphaDisplay(deck[idx][1]);
 }
 function checkAlpha(en) {
-  const target = en.toLowerCase().replace(/[^a-z]/g,"");
+  const target = en.toLowerCase().replace(/[^a-z]/g, "");
   const fb = document.getElementById("alphaFeedback");
   document.getElementById("alphaGrid").querySelectorAll(".alpha-btn").forEach(b => b.disabled = true);
   answered = true;
@@ -683,9 +495,8 @@ function loadChoice(ja, en) {
   document.getElementById("choiceFeedback").className = "feedback";
   document.getElementById("choiceNextBtn").classList.add("hidden");
   answered = false;
-  const pool = deck.map(d=>d[1]).filter(w=>w!==en);
-  shuffle(pool);
-  const opts = shuffle([en, ...pool.slice(0,3)]);
+  const pool = shuffle(deck.map(d => d[1]).filter(w => w !== en));
+  const opts = shuffle([en, ...pool.slice(0, 3)]);
   const grid = document.getElementById("choiceGrid");
   grid.innerHTML = "";
   for (const opt of opts) {
@@ -698,15 +509,20 @@ function loadChoice(ja, en) {
 function checkChoice(btn, chosen, en) {
   if (answered) return;
   answered = true;
-  const fb = document.getElementById("choiceFeedback");
   document.getElementById("choiceGrid").querySelectorAll(".choice-btn").forEach(b => {
     b.disabled = true;
     if (b.textContent === en) b.classList.add("correct");
   });
   if (chosen === en) {
-    btn.classList.add("correct"); fb.textContent = "✓ 正解！"; fb.className = "feedback ok"; scoreOk++;
+    btn.classList.add("correct");
+    document.getElementById("choiceFeedback").textContent = "✓ 正解！";
+    document.getElementById("choiceFeedback").className = "feedback ok";
+    scoreOk++;
   } else {
-    btn.classList.add("wrong"); fb.textContent = "✗ 不正解"; fb.className = "feedback ng"; scoreNg++;
+    btn.classList.add("wrong");
+    document.getElementById("choiceFeedback").textContent = "✗ 不正解";
+    document.getElementById("choiceFeedback").className = "feedback ng";
+    scoreNg++;
   }
   updateUI();
   document.getElementById("choiceNextBtn").classList.remove("hidden");
@@ -718,28 +534,46 @@ function switchMode(m) {
   mode = m;
   document.querySelectorAll(".mode-tab").forEach(t => t.classList.toggle("active", t.dataset.mode === m));
   ["flash","type","alpha","choice"].forEach(id => {
-    document.getElementById(id+"Mode").classList.toggle("hidden", id !== m);
+    document.getElementById(id + "Mode").classList.toggle("hidden", id !== m);
   });
   idx = 0; resetScores();
-  deck = shuffle(getChapterDeck());
+  deck = buildDeck();
   loadCard();
 }
 
-// Events
 document.querySelectorAll(".mode-tab").forEach(t => t.addEventListener("click", () => switchMode(t.dataset.mode)));
-document.getElementById("chapterSel").addEventListener("change", () => switchMode(mode));
-document.getElementById("shuffleBtn").addEventListener("click", () => { deck = shuffle(getChapterDeck()); idx=0; resetScores(); loadCard(); });
-document.getElementById("typeInput").addEventListener("keydown", e => { if (e.key==="Enter") checkType(); });
+document.getElementById("chapterSel").addEventListener("change", () => {
+  const v = document.getElementById("chapterSel").value;
+  const btn = document.getElementById("orderBtn");
+  if (ORDER_CHAPTERS.includes(v)) {
+    orderMode = true;
+    btn.textContent = "順";
+    btn.style.background = "var(--accent)";
+    btn.style.color = "var(--accent-text)";
+  } else {
+    orderMode = false;
+    btn.textContent = "乱";
+    btn.style.background = "var(--bg2)";
+    btn.style.color = "var(--text2)";
+  }
+  switchMode(mode);
+});
+document.getElementById("shuffleBtn").addEventListener("click", () => { deck = shuffle(getChapterDeck()); idx = 0; resetScores(); loadCard(); });
+document.getElementById("orderBtn").addEventListener("click", () => {
+  orderMode = !orderMode;
+  const btn = document.getElementById("orderBtn");
+  btn.textContent = orderMode ? "順" : "乱";
+  btn.style.background = orderMode ? "var(--accent)" : "var(--bg2)";
+  btn.style.color = orderMode ? "var(--accent-text)" : "var(--text2)";
+  deck = buildDeck(); idx = 0; resetScores(); loadCard();
+});
+document.getElementById("typeInput").addEventListener("keydown", e => { if (e.key === "Enter") checkType(); });
 
-// iOS install tip
-const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-const isStandalone = window.navigator.standalone;
-if (isIOS && !isStandalone) {
+if (/iphone|ipad|ipod/i.test(navigator.userAgent) && !window.navigator.standalone) {
   document.getElementById("installTip").classList.remove("hidden");
 }
 
-// Init
-deck = shuffle(getChapterDeck());
+deck = buildDeck();
 loadCard();
 </script>
 </body>
