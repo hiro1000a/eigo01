@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="英単語">
 <meta name="theme-color" content="#ffffff">
-<title>Sunshine1 英単語アプリ</title>
+<title>Sunshine1 英単語アプリ (P1-10)</title>
 <style>
   :root {
     --bg: #ffffff; --bg2: #f5f5f3; --bg3: #ebebeb;
@@ -210,6 +210,13 @@
       <option value="1">Program 1</option>
       <option value="2">Program 2</option>
       <option value="3">Program 3</option>
+      <option value="4">Program 4</option>
+      <option value="5">Program 5</option>
+      <option value="6">Program 6</option>
+      <option value="7">Program 7</option>
+      <option value="8">Program 8</option>
+      <option value="9">Program 9</option>
+      <option value="10">Program 10</option>
       <option value="month">月</option>
       <option value="day">曜日</option>
       <option value="season">四季</option>
@@ -311,6 +318,82 @@ const ALL_WORDS = [
   ["do notの短縮形","don't"],["～のあとに","after"],["栽培する、育てる","grow"],["使う","use"],["家で","at home"],["とても","very much"],["放課後","after school"],["家、家庭","home"],["カエル","frog"],["町","town"],["たくさん、おおいに","much"],["歩く、散歩させる","walk"],["～に乗る（自転車など）","ride"],["自転車","bicycle"],["美しい、すばらしい","beautiful"],["たくさん（の）","many"],["花","flower"],["ときどき","sometimes"],["ピアノ","piano"],["見る（テレビなどをじっと見る）","watch"],["読む","read"],["本","book"],["掃除する","clean"],["週末","weekend"],["しかし","but"],["～の前に","before"],["～に（日を表して）","on"],["勉強する","study"],["夕食","dinner"],["うわー","wow"],["ぱらぱらめくること","flip"],["～のほうを見る","look at"],["線で絵を描く","draw"],["絵、写真","picture"],["見る、目を向ける","look"],["ノート","notebook"],["芸術家、アーティスト","artist"],["質問","question"],["もちろん、わかった","sure"],["～の間（のいつか）に","during"],["休憩","break"],["明日","tomorrow"],["～のために、～に向けた","for"],["いくつか、いくらかの（疑問文）","any"],["どれくらいの、いくつの","How many"],["鉛筆","pencil"],["どう、どのくらい","how"],["2、2の","two"],["少女","girl"],["カップ","cup"],["日曜日","Sunday"],["閉じる","close"],["いくつかの、いくらかの","some"],["歌","song"],["お風呂に入る","take a bath"],["言う","say"],["飲む","drink"],["お茶、紅茶","tea"],["食べる","eat"],["朝食","breakfast"],["開ける、開く","open"],["歌を歌う","sing"],["話す","speak"],["英語","English"],["～をする、取る、連れていく","take"],["触る","touch"],["机","desk"],["洗う","wash"],["顔","face"],["書く","write"],["テレビ","TV"],
   // Program 3
   ["that isの短縮形","that's"],["cannotの短縮形","can't"],["それでは、それなら","then"],["巻いたもの","roll"],["キロメートル","kilometer"],["知る、知っている","know"],["スキーをする","ski"],["おじ","uncle"],["おば","aunt"],["いとこ","cousin"],["あれ、それ","that"],["泳ぐ","swim"],["中国語","Chinese"],["夏","summer"],["冬","winter"],["上手に","well"],["踊る","dance"],["兄、弟","brother"],["とてもおいしい","delicious"],["オムレツ","omelet"],["おばあさん、祖母","grandmother"],["お父さん、父","father"],["お母さん、母","mother"],["おじいさん、祖父","grandfather"],["フランス語","French"],["魔法の","magic"],["芸","trick"],["ギター","guitar"],["スケートをする","skate"],["カレー","curry"],["スープ","soup"],["速く","fast"],["地図","map"],["才能（のある人）","talent"],["見せ物、ショー、番組","show"],["行う、演じる","perform"],["選ぶ","choose"],["わかりました、いいですよ","OK"],["わくわくして","excited"],["幸運を祈ります","Good luck!"],["すばらしい","wonderful"],["とても、非常に、だから","so"],["幸運","luck"],["しばしば、よく、たびたび","often"],["インターネット","internet"],["私たちの","our"],["ダンサー、踊り手","dancer"],["ロボット","robot"],["救助","rescue"],["運ぶ","carry"],["重い","heavy"],["もの、こと","thing"],["見つける、探し当てる","find"],["水","water"],["登る","climb"],["木","tree"],["助ける、手伝う","help"],["人々","people"],["～といっしょに","with"],["飛ぶ","fly"],["空","sky"],["鍵","key"],["～できない","cannot"],["鳥","bird"],["ミッドフィールダー","midfielder"],["彼ら[彼女ら、それら]の","their"],["大好きである、愛する","love"],["試合、ゲーム","game"],["彼ら[彼女ら、それら]は","they"],["アイドル、崇拝される人","idol"],["彼女の","her"],["コンサート","concert"],["3、3の","three"],["もっともよい","best"],["友達","friend"],["かわいい","cute"],
+  // Program 4
+  ["銘柄、ブランド","brand"],["買う","buy"],["クッキー","cookie"],["有名な","famous"],["is notの短縮形","isn't"],["ゼリー","jelly"],["彼女は","she"],["これ、これは","this"],
+  ["誰、誰が","who"],["女性","woman"],["アリ","ant"],["男の子、少年","boy"],["チョウ","butterfly"],["クラスメート、同級生","classmate"],["コート（競技場）","court"],["ゾウ","elephant"],
+  ["速く、速い","fast"],["彼は","he"],["馬","horse"],["男性","man"],["年とった、古い","old"],["～の上に","on"],["走る人、ランナー","runner"],["路上歌手","street singer"],
+  ["タオル","towel"],["陸上競技","track and field"],["～と、～といっしょに","with"],["年、歳","year"],["～歳","～ year(s) old"],["シマウマ","zebra"],["油で揚げた","deep-fried"],["お気に入りの、大好きな","favorite"],
+  ["ハハッ（笑い声）","ha-ha"],["伝説","legend"],["肉","meat"],["準備ができた","ready"],["心配する","worry"],["シェフ、料理人","chef"],["かっこいい、涼しい","cool"],["カスタードプリン","custard pudding"],
+  ["すばらしい、優れた","excellent"],["女性、ご婦人","lady"],["～が好き、～のような","like"],["she isの短縮形","she's"],["姉、妹","sister"],["甘い","sweet"],["テキサス州","Texas"],["伝統的な","traditional"],
+  ["who isの短縮形","who's"],["（丁寧表現）～しますか、～したい","would"],["～はいかがですか","Would you like ～?"],["答え、答える","answer"],["バナナ","banana"],["さくらんぼ","cherry"],["トウモロコシ","corn"],["果物","fruit"],
+  ["手に入れる、（理解の）わかる","get"],["わかった！","I got it!"],["getの過去形","got"],["ヒント","hint"],["長い","long"],["正しい、右","right"],["その通り。","That's right."],["丸い","round"],
+  ["酸っぱい","sour"],["トマト","tomato"],["野菜","vegetable"],["黄色い、黄色","yellow"],["ドローン","drone"],["he isの短縮形","he's"],["高校","high school"],["プログラマー","programmer"],
+  ["あれ、それ、あの","that"],
+  // Program 5
+  ["パジャマ","pajama"],["衣服、服","clothes"],["デザインする、デザイン","design"],["doの3単現形","does"],["does notの短縮形","doesn't"],["家庭科","home economics"],["縫う","sew"],["いくつかの、何か","any"],
+  ["ベッキー（人名）","Becky"],["カレーライス","curry and rice"],["絵、デッサン","drawing"],["彼の、彼のもの","his"],["アイスホッケー","ice hockey"],["ジョン（人名）","John"],["韓国の、韓国語","Korean"],["メグ（人名）","Meg"],
+  ["選手、プレーヤー","player"],["トム（人名）","Tom"],["共通の、ありふれた","common"],["～の中に、～で","in"],["ジェニー（人名）","Jenny"],["ただ、ちょうど","just"],["子供、冗談を言う","kid"],["冗談だよ。","Just kidding."],
+  ["住む、生きる","live"],["生の、ライブの","live"],["写真","photo"],["～だよね？","～, right?"],["（時間を）過ごす、（お金を）使う","spend"],["その（定冠詞）","the"],["～について","about"],["全ての、全部","all"],
+  ["慈善、チャリティ","charity"],["子供たち","children"],["会社","company"],["病院","hospital"],["意味する","mean"],["～の","of"],["ただ～だけ","only"],["誇りに思う","proud"],
+  ["～を誇りに思う","be proud of ～"],["病気の","sick"],["支援する、応援する","support"],["話す","talk"],["働く、仕事","work"],["小学校","elementary school"],["イベント、行事","event"],["I wouldの短縮形","I'd"],
+  ["～したい","would like to ～"],
+  // Program 6
+  ["道、方法","way"],["いつも","always"],["～だから","because"],["彼女を、彼女に","her"],["彼を、彼に","him"],["なぜ","why"],["～はどうですか","How about ～?"],["探偵","detective"],
+  ["早く、早い","early"],["英語、英語の","English"],["一生懸命、難しい","hard"],["～の中に、～で","in"],["リン（人名）","Lin"],["モンスター、怪物","monster"],["公園","park"],["海賊","pirate"],
+  ["ロマンチックな","romantic"],["歌手","singer"],["スター・ウォーズ（映画名）","STAR WARS"],["そこに、そこへ","there"],["上手に、十分に","well"],["ええと（つなぎ語）","well"],["ええ、うん","yeah"],["～を横切って","across"],
+  ["1時間、時間","hour"],["それは、それを","it"],["ジャクソン（人名）","Jackson"],["ケニア","Kenya"],["朝、午前","morning"],["尊敬する","respect"],["サバンナ","savanna"],["（時間が）かかる、取る","take"],
+  ["言う、伝える","tell"],["つらい、たくましい","tough"],["どこに、どこで","where"],["飛行機","airplane"],["驚くべき、すばらしい","amazing"],["襲う、攻撃する","attack"],["危険な","dangerous"],["夢","dream"],
+  ["持っている（haveの3単現）","has"],["～でしょ、～だよね","～, you know."],["親","parent"],["場所","place"],["祈る","pray"],["安全な","safe"],["安全","safety"],["生徒、学童","schoolchild"],
+  ["生徒たち","schoolchildren"],["考える、思う","think"],["まさか！とんでもない！","No way!"],["what isの短縮形","what's"],["何か、何も（疑問文・否定文）","anything"],["登場人物、キャラクター","character"],["他に","else"],["ルフィ（人名）","Luffy"],
+  ["ワンピース（作品名）","ONE PIECE"],["強い","strong"],["彼ら[彼女ら、それら]を","them"],["バッグ、かばん","bag"],["それの","its"],["彼ら[彼女ら、それら]のもの","theirs"],["これら、これらの","these"],["これら、これらの","these"],
+  ["私たちを、私たちに","us"],
+  // Program 7
+  ["～について、～の上に","on"],["研究、調査","research"],["バス","bus"],["～によって、～で","by"],["ケーキ","cake"],["お父さん","dad"],["満腹の、いっぱいの","full"],["どのように、どんな","how"],
+  ["空腹の、おなかがすいた","hungry"],["～の上に、～を越えて","over"],["レストラン","restaurant"],["店","shop"],["何か","something"],["ステーキ","steak"],["そこに","there"],["あそこに","over there"],
+  ["大学","college"],["来る","come"],["遠く、遠い","far"],["家","house"],["おもしろい、興味深い","interesting"],["図書館","library"],["少し、小さい","little"],["少し","a little"],
+  ["博物館、美術館","museum"],["～の近くに","near"],["飛行機","plane"],["ショッピングモール","shopping mall"],["あれら、それら","those"],["ふつう、たいてい","usually"],["動物","animal"],["～してくれますか","Can you ～?"],
+  ["まさに、ちょうど","exactly"],["コアラ","koala"],["たくさん","lot"],["たくさんの～","a lot of ～"],["オペラハウス","Opera House"],["クオッカ","quokka"],["シドニー","Sydney"],["独特な、固有の","unique"],
+  ["～の周りに","around"],["あちこち、あたりに","around"],["サンゴ礁","coral reef"],["～で有名である","be famous for ～"],["豪華な、見事な","gorgeous"],["グレートバリアリーフ","Great Barrier Reef"],["心、ハート","heart"],["ヘリコプター","helicopter"],
+  ["島","island"],["土地、陸地","land"],["見る、～に見える","look"],["～のように見える","look like ～"],["豊かな、お金持ちの","rich"],["景色","scenery"],["水上飛行機","seaplane"],["見せる、ショー","show"],
+  ["～を案内する","show ～ around"],["いつか","someday"],["竹","bamboo"],["～のそばに、～で","by"],["費用がかかる、費用","cost"],["えさを与える","feed"],["門、ゲート","gate"],["木立、林","grove"],
+  ["ライオン","lion"],["低い","low"],["次の","next"],["隣の","next"],["～の隣に","next to ～"],["池","pond"],["人気のある","popular"],["カメ","turtle"],
+  ["コンビニエンスストア","convenience store"],["競技場、スタジアム","stadium"],
+  // Program 8
+  ["幸せな、うれしい","happy"],["明けましておめでとう！","Happy New Year!"],["～です（主語が私）","am"],["何か、何も（疑問文・否定文）","anything"],["～です（主語があなた・複数）","are"],["カウントダウン","countdown"],["～です（主語が3人称単数）","is"],["ケビン（人名）","Kevin"],
+  ["準備する","prepare"],["まだ、依然として","still"],["空気","air"],["浴室、お風呂","bathroom"],["忙しい","busy"],["感じる","feel"],["ブドウ","grape"],["こんにちは","hello"],
+  ["助ける、手伝う","help"],["どう、どのくらい","how"],["ライオンクイーン（番組名）","Lion Queen"],["聞く","listen"],["～を聞く","listen to ～"],["マーク（人名）","Mark"],["必要とする","need"],["桃","peach"],
+  ["柿","persimmon"],["パイナップル","pineapple"],["シャワー、にわか雨","shower"],["イチゴ","strawberry"],["晴れの","sunny"],["スーパーマーケット","supermarket"],["今日","today"],["（いっしょに）～しませんか","Why don't we ～?"],
+  ["ほとんど、もう少しで","almost"],["前、正面","front"],["～の前で","in front of ～"],["真夜中、午前0時","midnight"],["お母さん","mom"],["いいえ","no"],["1、1の","one"],["（がっかりして）あー、しまった","shoot"],
+  ["立つ","stand"],["ビデオ、動画","video"],["we areの短縮形","we're"],["高価な、値段が高い","expensive"],["像、人形","figure"],["フランス","France"],["フランスの、フランス語","French"],["家、家庭、家で","home"],
+  ["重要な、大切な","important"],["1月","January"],["ジョーンズ（人名）","Jones"],["～さん、～先生（男性）","Mr."],["今、今では","now"],["（前出名詞を受けて）もの","one"],["パティシエ、菓子職人","pastry chef"],["置く、入れる","put"],
+  ["上手な、熟練の","skillful"],["とても小さい","tiny"],["切る","cut"],["家族","family"],["楽しい、楽しみ","fun"],["市場","market"],["ミライ魚市場","Mirai Fish Market"],["カキ（貝）","oyster"],
+  ["ストリーミング","streaming"],["マグロ","tuna"],["座る","sit"],
+  // Program 9
+  ["フィンランド","Finland"],["旅行","trip"],["～もまた","also"],["オーロラ","aurora"],["戻って、後ろ","back"],["来た（comeの過去形）","came"],["戻ってくる、帰ってくる","come back"],["した（doの過去形）","did"],
+  ["did notの短縮形","didn't"],["休日、祝日","holiday"],["どのように、どれくらい","how"],["時差ぼけ","jet lag"],["この前の、最後の","last"],["幸運な","lucky"],["夜","night"],["昨夜","last night"],
+  ["くつろぐ、リラックスする","relax"],["眠る、睡眠","sleep"],["滞在する、泊まる","stay"],["昨日","yesterday"],["午後","afternoon"],["～前に","ago"],["どこへでも、どこにも","anywhere"],["打ち負かす、打つ","beat"],
+  ["健康診断","checkup"],["よい、上手な","good"],["よい、上手な","good"],["～の中に、～で","in"],["たくさん","a lot"],["医療の","medical"],["写真を撮る","take a picture"],["読む","read"],
+  ["取る、連れていく","take"],["取る、（手段を）使う","take"],["その（定冠詞）","the"],["楽しい時を過ごす","have a good time"],["取った（takeの過去形）","took"],["獣医","vet"],["歩く、散歩","walk"],["散歩する","take a walk"],
+  ["行った（goの過去形）","went"],["勝つ","win"],["ブルブル（寒さの擬音）","brrr"],["寒い、冷たい","cold"],["国","country"],["フィンランドの、フィンランド語","Finnish"],["行く","go"],["かなりいいよ。","Pretty good."],
+  ["調子はどう？","How's it going?"],["how isの短縮形","how's"],["～の中へ","into"],["発明する","invent"],["それは、それを","it"],["うらやましい","jealous"],["湖","lake"],["かなり、きれいな","pretty"],
+  ["サウナ","sauna"],["訪れる","visit"],["週","week"],["～で（場所・時間）","at"],["苦い","bitter"],["買った（buyの過去形）","bought"],["キャンディー、お菓子","candy"],["コース、進路","course"],
+  ["もちろん","of course"],["見つけ出す、わかる","find out"],["見つけた（findの過去形）","found"],["かつて、一度","once"],["外へ、外で","out"],["サルミアッキ（フィンランドの菓子）","salmiakki"],["塩辛い、しょっぱい","salty"],["いくつかの、いくらかの","some"],
+  ["おいしい","tasty"],["時、時間","time"],["かつては","at one time"],["～もまた、～すぎる","too"],["～について","about"],["午前","a.m."],["一日中","all day"],["下へ","down"],
+  ["経験","experience"],["沈む、下りる","go down"],["6月","June"],["他の","other"],["外で、外側","outside"],["午後","p.m."],["トナカイ","reindeer"],["昇る、上がる","rise"],
+  ["道、道路","road"],["沈む、置く","set"],["太陽","sun"],["～まで","until"],["祖父母","grandparent"],["走った（runの過去形）","ran"],["眠った（sleepの過去形）","slept"],["～で（場所・時間）","at"],
+  ["止まる、止める、停留所","stop"],["撮る、（手段を）使う","take"],["勝った（winの過去形）","won"],
+  // Program 10
+  ["おばあちゃん","grandma"],["考え、アイデア","idea"],["あたためる、ぽかぽかする","warming"],["ああ","ah"],["私の","my"],["おっと","oops"],["物語、話","story"],["～でした、いた（is/amの過去形）","was"],
+  ["～でした、いた（is/amの過去形）","was"],["was notの短縮形","wasn't"],["～でした、いた（areの過去形）","were"],["～でした、いた（areの過去形）","were"],["すばらしい、すごい","awesome"],["呼ぶ、電話する","call"],["マンガ","comic"],["元気な、よい","fine"],
+  ["終える、終わる","finish"],["宿題","homework"],["7、7の","seven"],["眠い","sleepy"],["サンシャインショッピングモール","Sunshine Shopping Mall"],["ネットサーフィンする、サーフィンする","surf"],["驚いた","surprised"],["教科書","textbook"],
+  ["劇場、映画館","theater"],["その時、それから","then"],["疲れた","tired"],["凍えるような","freezing"],["～の中に、～で","in"],["問題、事柄","matter"],["どうしたの？","What's the matter?"],["次の","next"],
+  ["1つ","one"],["雪の降る","snowy"],["若い","young"],["全ての、全部","all"],["ベッド","bed"],["寝室","bedroom"],["ついて行く、従う","follow"],["わかった、よろしい","OK"],
+  ["トランポリン","trampoline"],["悪い、ひどい","bad"],["バタン（音）","bang"],["壊す、こわれる","break"],["壊した（breakの過去形）","broke"],["～を切り落とす","cut ～ off"],["十分な","enough"],["脚","leg"],
+  ["うーん","mmm"],["離れて","off"],["そり","sleigh"],["音、聞こえる","sound"],["ひどい、恐ろしい","terrible"],["健康で、元気で","well"],["丘","hill"],["持つ、つかむ","hold"],
+  ["～にしっかりつかまる","hold on to ～"],["増える、増やす","increase"],["さあ（呼びかけ）","now"],["（続けて）on","on"],["坂、斜面","slope"],["速度、スピード","speed"],["始める、始まる","start"],["わーい","whee"],
+  ["終わり","end"],["ついに、ようやく","finally"],["おや、まあ","gosh"],["それ、よいしょ","heave ho"],["熱い、暑い","hot"],["引く、引っぱる","pull"],["着く、達する","reach"],["蒸気、湯気","steam"],
+  ["あたたかい","warm"],["あなた自身","yourself"],["あなた方自身","yourselves"],["クローゼット、押し入れ","closet"],["ふわふわの","fluffy"],["ねえ、おい","hey"],["キルト布団","quilt"],["たぬき","raccoon dog"],
+  ["あたためる、あたたかい","warm"],["were notの短縮形","weren't"],
   // 月
   ["1月","January"],["2月","February"],["3月","March"],["4月","April"],["5月","May"],["6月","June"],["7月","July"],["8月","August"],["9月","September"],["10月","October"],["11月","November"],["12月","December"],
   // 曜日
@@ -323,13 +406,20 @@ const ALL_WORDS = [
 
 const ORDER_CHAPTERS = ['month','day','season','number']; // 順番出題デフォルト
 const CHAPTER_RANGES = {
-  "1":      [0,   70],
-  "2":      [70,  141],
-  "3":      [141, 217],
-  "month":  [217, 229],
-  "day":    [229, 236],
-  "season": [236, 240],
-  "number": [240, 260]
+  "1":      [   0,   70],
+  "2":      [  70,  141],
+  "3":      [ 141,  217],
+  "4":      [ 217,  290],
+  "5":      [ 290,  339],
+  "6":      [ 339,  404],
+  "7":      [ 404,  478],
+  "8":      [ 478,  545],
+  "9":      [ 545,  644],
+  "10":      [ 644,  726],
+  "month":      [ 726,  738],
+  "day":      [ 738,  745],
+  "season":      [ 745,  749],
+  "number":      [ 749,  769]
 };
 
 let deck = [], idx = 0, mode = "flash";
